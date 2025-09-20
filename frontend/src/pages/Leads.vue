@@ -377,7 +377,7 @@ function getGroupedByRows(listRows, groupByField, columns) {
 
     let groupDetail = {
       label: groupByField.label,
-      group: option || __(' '),
+      group: option ? __(option) : __(' '),
       collapsed: false,
       rows: parseRows(filteredRows, columns),
     }
@@ -449,7 +449,7 @@ function parseRows(rows, columns = []) {
         _rows[row] = website(lead.website)
       } else if (row == 'status') {
         _rows[row] = {
-          label: lead.status,
+          label: __(lead.status),
           color: getLeadStatus(lead.status)?.color,
         }
       } else if (row == 'sla_status') {
